@@ -1,6 +1,6 @@
 import { Request, Response, Router, response } from "express";
 import { Usuario } from '../models/usuario.model';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import Token from "../classes/token";
 import { verificaToken } from "../middelwares/autenticacion";
 
@@ -58,7 +58,7 @@ userRoutes.post('/create', (req: Request, res: Response) => {
         password: bcrypt.hashSync(req.body.password, 10),
         avatar: req.body.avatar
     }
-
+    console.log('he pasado por aquí...');
     Usuario.create( user ).then( userDB => {
 
         const tokenUser: string = Token.getJwtToken({

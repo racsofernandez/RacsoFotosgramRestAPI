@@ -1,7 +1,7 @@
 import Server from './classes/server';
 import userRoutes from './routes/usuario';
 import mongoose from 'mongoose';
-import bodyParser  from 'body-parser';
+import * as bodyParser  from 'body-parser';
 
 const server = new Server();
 
@@ -19,3 +19,4 @@ server.app.use( bodyParser.json());
 
 //Rutas de mi aplicación
 server.app.use('/user', userRoutes);
+
